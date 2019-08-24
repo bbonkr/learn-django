@@ -31,5 +31,5 @@ $ pip freeze > requirements.txt
 ### 패키지 설치
 
 ```bash
-$ pip install ./requirements.txt
+$ pip install -r ./requirements.txt
 ```
