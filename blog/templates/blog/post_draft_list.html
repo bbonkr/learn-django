@@ -3,11 +3,11 @@
 {% block content %}
     {% for post in posts %}
         <div class="post">
-            <div class="date">
-                <p>published: {{ post.published_date|date:"Y\-m\-d" }} {{ post.published_date|time:"H:i:s" }}</p>
-            </div>                            
+            <p class="date">
+                created: {{ post.created_date|date:"Y\-m\-d H:m" }} {{ post.created_date|time:"H:m:s" }}
+            </p>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
+            <p>{{ post.text|truncatechars:200 }}</p>
         </div>
     {% endfor %}
 {% endblock %}
