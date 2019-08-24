@@ -328,3 +328,18 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+# python venv
+devenv/
+
+# vscode
+.vscode/
+
+# python
+*.pyc
+*~
+__pycache__
+myvenv
+db.sqlite3
+/static
+.DS_Store
