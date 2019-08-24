@@ -1,6 +1,10 @@
 # learn-django
 
-장고를 배워요
+장고를 배워요.
+
+[장고걸스 튜토리얼 (Django Girls Tutorial)](https://tutorial.djangogirls.org/ko/)
+
+따라서 작성하니, 웹사이트가 생겼습니다.
 
 ### 가상환경
 
