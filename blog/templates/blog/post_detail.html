@@ -2,18 +2,19 @@
 
 {% block content %}
     <div class="post">
+        {% if user.is_authenticated %}
+            <a href="{% url 'post_edit' pk=post.pk %}" class="post-menu btn btn-default"><span class="glyphicon glyphicon-pencil"></span><span class="sr-only">edit post</span></a>
+            <a href="{% url 'post_remove' pk=post.pk %}" class="post-menu btn btn-warning"><span class="glyphicon glyphicon-remove"></span></a>
+        {% endif %}
+        <h1>{{ post.title }}</h1>
         {% if post.published_date %}
             <div class="date">
                published: {{ post.published_date|date:"Y\-m\-d" }} {{ post.published_date|time:"H:i:s" }}
             </div>
         {% else %}
-            <a href="{% url 'post_publish' pk=post.pk %}" class="btn btn-default">Publish</a>
-        {% endif %}
-        {% if user.is_authenticated %}
-        <a href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span><span class="sr-only">edit post</span></a>
-        <a href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-        {% endif %}
-        <h1>{{ post.title }}</h1>
+            <a href="{% url 'post_publish' pk=post.pk %}" class="post-menu btn btn-default">Publish</a>
+        {% endif %}        
+        <hr />
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 {% endblock %}
