@@ -3,11 +3,18 @@
 {% block content %}
     {% for post in posts %}
         <div class="post">
+                         
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <div class="date">
                 <p>published: {{ post.published_date|date:"Y\-m\-d" }} {{ post.published_date|time:"H:i:s" }}</p>
-            </div>                            
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
+            </div>   
+            <hr />
+            <p>
+                {{ post.text|truncatechars:200 }}
+            </p>
+            <div>
+                <a href="{% url 'post_detail' pk=post.pk%}" class="btn btn-default">더 보기</a>
+            </div>
         </div>
     {% endfor %}
 {% endblock %}
